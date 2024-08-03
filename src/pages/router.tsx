@@ -1,16 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import { routes } from "shared";
 
-import { Layout } from "./ui";
+import { Layout, Login, Register } from "./ui";
 
 export const router = createBrowserRouter([
   {
     path: routes.register,
-    element: <>register</>,
+    element: <Register />,
   },
   {
     path: routes.login,
-    element: <>login</>,
+    element: <Login />,
   },
   {
     path: routes.base,
