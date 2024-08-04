@@ -1,4 +1,4 @@
-import { baseApi } from "../baseApi";
+import { baseApi } from "shared";
 
 interface UserDto extends Omit<User, "role" | "id"> {
   password: string;

@@ -8,7 +8,7 @@ import { registerUser } from "shared";
 import {
   type RegisterFormSchema,
   registerFormSchema,
-} from "./registerFormSchema";
+} from "./register-form-schema";
 
 export const useRegisterForm = () => {
   const { handleSubmit, formState, register, setError } =
@@ -25,7 +25,6 @@ export const useRegisterForm = () => {
       setIsRegistered(true);
     } catch (e) {
       if (e instanceof AxiosError) {
-        console.log(e);
         setError("root", { message: e.response?.data.message || e.message });
       } else {
         setError("root", {

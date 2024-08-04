@@ -1,6 +1,6 @@
 import { Text, TextProps } from "@chakra-ui/react";
 
-export const ErrorMessage = ({ children = '', ...props }: TextProps) => {
+export const ErrorMessage = ({ children = "", ...props }: TextProps) => {
   return (
     <Text
       fontSize="xs"

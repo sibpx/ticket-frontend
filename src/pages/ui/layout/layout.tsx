@@ -1,5 +1,6 @@
-import { Box, Center } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
+import { Box, Center } from "@chakra-ui/react";
+
 import { Header } from "widgets";
 
 export const Layout = () => {

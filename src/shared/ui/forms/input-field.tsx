@@ -10,7 +10,7 @@ interface InputFieldProps extends InputProps {
 export const InputField = forwardRef(
   (
     { id, children, type, ...props }: InputFieldProps,
-    ref: ForwardedRef<HTMLInputElement>
+    ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
       <>
@@ -20,5 +20,5 @@ export const InputField = forwardRef(
         <Input id={id} type={type} {...props} ref={ref} />
       </>
     );
-  }
+  },
 );

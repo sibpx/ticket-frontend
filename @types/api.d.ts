@@ -9,3 +9,11 @@ enum UserRole {
   admin = "ADMIN",
   user = "USER",
 }
+
+interface UserCredentials extends Pick<User, "email"> {
+  password: string;
+}
+
+interface GetCurrentUserResponse {
+  user: User;
+}
