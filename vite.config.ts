@@ -12,6 +12,7 @@ export default defineConfig({
       components: "/src/components",
       features: "/src/features",
       widgets: "/src/widgets",
+      contexts: "/src/contexts",
     },
   },
 });
