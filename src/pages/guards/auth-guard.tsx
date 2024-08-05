@@ -8,7 +8,6 @@ interface AuthGuardProps {
 
 export const AuthGuard = ({ children }: AuthGuardProps) => {
   const isAuthorized = useIsAuthorized();
-  console.log("auth guard");
   if (!isAuthorized) {
     return <>{children}</>;
   }

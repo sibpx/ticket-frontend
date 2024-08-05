@@ -16,7 +16,7 @@ import {
 } from "shared";
 import { useLoginForm } from "./lib";
 
-export const LoginForm = () => {
+export const LoginFeature = () => {
   const { register, onSubmit, formState } = useLoginForm();
   return (
     <FormLayout onSubmit={onSubmit}>

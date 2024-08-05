@@ -1,6 +1,6 @@
 import { baseApi } from "shared";
 
-interface UserDto extends Omit<User, "role" | "id"> {
+interface UserDto extends Omit<User, "role" | "_id"> {
   password: string;
 }
 

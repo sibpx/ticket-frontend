@@ -8,7 +8,6 @@ interface GuestGuardProps {
 
 export const GuestGuard = ({ children }: GuestGuardProps) => {
   const isAuthorized = useIsAuthorized();
-  console.log("guest guard");
   if (isAuthorized) {
     return <>{children}</>;
   }

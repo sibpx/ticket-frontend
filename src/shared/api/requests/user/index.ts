@@ -1,3 +1,3 @@
-export * from "./authUser";
-export * from "./registerUser";
-export * from "./getCurrentUser";
+export * from "./auth-user";
+export * from "./register-user";
+export * from "./get-current-user";

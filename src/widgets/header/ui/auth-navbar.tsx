@@ -1,24 +1,16 @@
 import { NavLink } from "react-router-dom";
-
 import { Flex, Button } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
 
-import { routes, useLogout } from "shared";
+import { CreateTicket } from "features";
+import { routes } from "shared";
 
 export const AuthNavbar = () => {
-  const onLogout = useLogout();
-
   return (
     <Flex gap="0.5rem">
-      <Button colorScheme="blue" leftIcon={<AddIcon />}>
-        Создать тикет
-      </Button>
+      <CreateTicket />
 
-      <NavLink to={routes.current}>
-        {({ isActive }) => <Button isDisabled={isActive}>Главная</Button>}
-      </NavLink>
-      <NavLink to={routes.history}>
-        {({ isActive }) => <Button isDisabled={isActive}>История</Button>}
+      <NavLink to={routes.base}>
+        {({ isActive }) => <Button isDisabled={isActive}>Тикеты</Button>}
       </NavLink>
       <NavLink to={routes.account}>
         {({ isActive }) => (
@@ -27,9 +19,6 @@ export const AuthNavbar = () => {
           </Button>
         )}
       </NavLink>
-      <Button colorScheme="red" onClick={onLogout}>
-        Выйти
-      </Button>
     </Flex>
   );
 };

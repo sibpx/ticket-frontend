@@ -1,5 +1,5 @@
 interface User {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   role: UserRole;
@@ -16,4 +16,18 @@ interface UserCredentials extends Pick<User, "email"> {
 
 interface GetCurrentUserResponse {
   user: User;
+}
+
+interface Ticket {
+  _id: string;
+  description: string;
+  status: TicketStatus;
+  creator: string;
+  resolveText: string;
+}
+
+enum TicketStatus {
+  pending = "pending",
+  resolved = "resolved",
+  rejected = "rejected",
 }

@@ -1,10 +1,10 @@
 import { Center } from "@chakra-ui/react";
-import { LoginForm } from "widgets";
+import { LoginFeature } from "features";
 
 export const Login = () => {
   return (
     <Center h="100%" as="main">
-      <LoginForm />
+      <LoginFeature />
     </Center>
   );
 };

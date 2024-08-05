@@ -12,7 +12,7 @@ import {
 
 import { useRegisterForm } from "./lib";
 
-export const RegisterForm = () => {
+export const RegisterFeature = () => {
   const { formState, onSubmit, register, isRegistered } = useRegisterForm();
 
   if (isRegistered) {
