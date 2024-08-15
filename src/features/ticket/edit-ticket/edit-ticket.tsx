@@ -1,8 +1,12 @@
 import { EditIcon } from "@chakra-ui/icons";
 import { IconButton, useDisclosure } from "@chakra-ui/react";
-import { EditTicketModal } from "shared";
+import { EditTicketModal } from "./ui";
 
-export const EditTicket = () => {
+interface EditTicketProps {
+  id: string;
+}
+
+export const EditTicket = ({ id }: EditTicketProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -15,7 +19,7 @@ export const EditTicket = () => {
         icon={<EditIcon />}
         onClick={onOpen}
       />
-      <EditTicketModal isOpen={isOpen} onClose={onClose} />
+      <EditTicketModal isOpen={isOpen} onClose={onClose} id={id} />
     </>
   );
 };

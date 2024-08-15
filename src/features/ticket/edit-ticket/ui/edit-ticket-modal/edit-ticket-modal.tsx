@@ -1,20 +1,20 @@
 import {
-  Button,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   ModalOverlay,
   Portal,
-  Textarea,
+  ModalProps,
 } from "@chakra-ui/react";
-import { ModalProps } from "./types";
+import { EditTicketForm } from "../edit-ticket-form";
+import { useParams } from "react-router-dom";
 
-interface EditTicketModalProps extends ModalProps {}
+interface EditTicketModalProps extends Omit<ModalProps, "children"> {}
 
 export const EditTicketModal = (props: EditTicketModalProps) => {
+  const id = useParams();
   return (
     <Portal>
       <Modal
@@ -22,23 +22,15 @@ export const EditTicketModal = (props: EditTicketModalProps) => {
         onClose={props.onClose}
         closeOnOverlayClick={false}
         isCentered={true}
+        size="xl"
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Изменение тикета 51352532532532</ModalHeader>
+          <ModalHeader>Тикет {`${id}`}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <form>
-              <Textarea resize="vertical" />
-            </form>
+            <EditTicketForm onClose={props.onClose} id={id} />
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="red" mr={3} onClick={props.onClose}>
-              Закрыть
-            </Button>
-            <Button colorScheme="blue">Отправить</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </Portal>

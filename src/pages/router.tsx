@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import { routes } from "shared";
 
-import { Layout, Login, Register, Account, Main } from "./ui";
+import { Layout, Login, Register, Account, Main, NotFound } from "./ui";
 import { AuthGuard, GuestGuard } from "./guards";
 
 import { CheckToken } from "./check-token";
+import { EditTicketModal } from "features";
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
         <Layout />
       </CheckToken>
     ),
+    errorElement: <NotFound />,
     children: [
       {
         path: routes.register,
@@ -38,6 +40,16 @@ export const router = createBrowserRouter([
             <Main />
           </GuestGuard>
         ),
+        children: [
+          {
+            path: routes.ticket,
+            element: (
+              <GuestGuard>
+                <EditTicketModal />
+              </GuestGuard>
+            ),
+          },
+        ],
       },
       {
         path: routes.account,

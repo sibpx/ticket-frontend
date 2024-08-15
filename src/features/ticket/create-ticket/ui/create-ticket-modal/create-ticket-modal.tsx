@@ -21,11 +21,16 @@ export const CreateTicketModal = (props: CreateTicketModalProps) => {
   const isCreated = useIsCreated();
   const setIsCreated = useSetterIsCreated();
 
+  const onClose = () => {
+    setIsCreated && setIsCreated(false);
+    props.onClose();
+  };
+
   return (
     <Portal>
       <Modal
         isOpen={props.isOpen}
-        onClose={props.onClose}
+        onClose={onClose}
         closeOnOverlayClick={false}
         isCentered={true}
       >
@@ -45,13 +50,7 @@ export const CreateTicketModal = (props: CreateTicketModalProps) => {
           </ModalBody>
           {isCreated && (
             <ModalFooter>
-              <Button
-                mr={3}
-                onClick={() => {
-                  setIsCreated && setIsCreated(false);
-                  props.onClose();
-                }}
-              >
+              <Button mr={3} onClick={onClose}>
                 Закрыть
               </Button>
             </ModalFooter>

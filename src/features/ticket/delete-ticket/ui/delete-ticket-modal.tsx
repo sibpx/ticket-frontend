@@ -8,16 +8,22 @@ import {
   AlertDialogOverlay,
   Button,
   Portal,
+  ModalProps,
 } from "@chakra-ui/react";
-import { ModalProps } from "./types";
+import { useDeleteTicket } from "shared";
 
-interface DeleteTicketModalProps extends ModalProps{}
+interface DeleteTicketModalProps extends Omit<ModalProps, "children"> {
+  id: string;
+}
 
 export const DeleteTicketModal = ({
   isOpen,
   onClose,
+  id,
 }: DeleteTicketModalProps) => {
   const cancelRef = useRef<HTMLButtonElement>(null);
+  const { mutate, isPending } = useDeleteTicket(id);
+
   return (
     <Portal>
       <AlertDialog
@@ -37,10 +43,15 @@ export const DeleteTicketModal = ({
             </AlertDialogBody>
 
             <AlertDialogFooter>
-              <Button ref={cancelRef} onClick={onClose}>
+              <Button ref={cancelRef} onClick={onClose} isDisabled={isPending}>
                 Отмена
               </Button>
-              <Button colorScheme="red" onClick={onClose} ml={3}>
+              <Button
+                colorScheme="red"
+                onClick={() => mutate()}
+                ml={3}
+                isDisabled={isPending}
+              >
                 Удалить
               </Button>
             </AlertDialogFooter>

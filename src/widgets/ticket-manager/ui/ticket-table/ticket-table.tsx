@@ -7,18 +7,17 @@ import {
   Tr,
   Th,
   Tbody,
-  Input,
 } from "@chakra-ui/react";
+import { useCurrentUser } from "shared";
 
 interface TicketTableProps {
   children: ReactNode;
 }
 
 export const TicketTable = (props: TicketTableProps) => {
-  const isAdmin = false;
+  const { isAdmin } = useCurrentUser();
   return (
     <>
-      <Input variant="filled" placeholder="Поиск" mb="2rem" size="lg" />
       <TableContainer>
         <Table variant="simple">
           <TableCaption>1 2 3 4 5 6</TableCaption>

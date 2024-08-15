@@ -23,7 +23,9 @@ export const CheckToken = ({ children }: CheckTokenProps) => {
       .then(() => {
         setIsAuthorized && setIsAuthorized(true);
       })
-      .catch(() => console.log("error"))
+      .catch(() => {
+        console.log("token invalid");
+      })
       .finally(() => setIsLoading(false));
   }, []);
 

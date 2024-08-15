@@ -14,20 +14,14 @@ interface UserCredentials extends Pick<User, "email"> {
   password: string;
 }
 
-interface GetCurrentUserResponse {
-  user: User;
-}
-
 interface Ticket {
   _id: string;
   description: string;
   status: TicketStatus;
   creator: string;
   resolveText: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
-enum TicketStatus {
-  pending = "pending",
-  resolved = "resolved",
-  rejected = "rejected",
-}
+type TicketStatus = "pending" | "resolved" | "rejected";

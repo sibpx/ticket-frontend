@@ -1,8 +1,12 @@
 import { DeleteIcon } from "@chakra-ui/icons";
 import { IconButton, useDisclosure } from "@chakra-ui/react";
-import { DeleteTicketModal } from "shared";
+import { DeleteTicketModal } from "./ui";
 
-export const DeleteTicket = () => {
+interface DeleteTicketProps {
+  id: string;
+}
+
+export const DeleteTicket = (props: DeleteTicketProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -15,7 +19,7 @@ export const DeleteTicket = () => {
         icon={<DeleteIcon />}
         onClick={onOpen}
       />
-      <DeleteTicketModal isOpen={isOpen} onClose={onClose} />
+      <DeleteTicketModal isOpen={isOpen} onClose={onClose} id={props.id} />
     </>
   );
 };

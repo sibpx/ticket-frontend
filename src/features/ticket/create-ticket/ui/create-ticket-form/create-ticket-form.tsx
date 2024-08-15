@@ -18,8 +18,8 @@ export const CreateTicketForm = (props: CreateTicketFormProps) => {
         {...register("description")}
         isInvalid={!!formState.errors.description}
       />
+      <ErrorMessage>{formState.errors.root?.message || ""}</ErrorMessage>
       <Flex py="1rem" justifyContent="end">
-        <ErrorMessage>{formState.errors.root?.message || ""}</ErrorMessage>
         <Button
           colorScheme="red"
           mr={3}

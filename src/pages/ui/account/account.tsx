@@ -4,7 +4,7 @@ import { Profile } from "widgets";
 
 export const Account = () => {
   return (
-    <Box>
+    <Box w="100%">
       <PageHeader>Аккаунт</PageHeader>
       <Profile />
     </Box>

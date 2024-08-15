@@ -21,16 +21,25 @@ export const LoginFeature = () => {
   return (
     <FormLayout onSubmit={onSubmit}>
       <FormHeading>Вход</FormHeading>
-
       <FormControl isRequired mt="0.4rem">
-        <InputField id="email" type="email" {...register("email")}>
+        <InputField
+          id="email"
+          type="email"
+          {...register("email")}
+          isInvalid={!!formState.errors.email}
+        >
           Эл. почта
         </InputField>
         <ErrorMessage>{formState.errors.email?.message || ""}</ErrorMessage>
       </FormControl>
 
       <FormControl isRequired mt="0.4rem">
-        <InputField id="password" type="password" {...register("password")}>
+        <InputField
+          id="password"
+          type="password"
+          {...register("password")}
+          isInvalid={!!formState.errors.password}
+        >
           Пароль
         </InputField>
       </FormControl>
@@ -47,7 +56,12 @@ export const LoginFeature = () => {
 
       <ErrorMessage>{formState.errors.root?.message || ""}</ErrorMessage>
 
-      <SubmitButton mt="3rem" loadingText="Вход...">
+      <SubmitButton
+        mt="3rem"
+        loadingText="Вход..."
+        isLoading={formState.isSubmitting}
+        isDisabled={!formState.isValid}
+      >
         Войти
       </SubmitButton>
 

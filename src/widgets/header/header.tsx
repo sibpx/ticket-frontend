@@ -9,7 +9,7 @@ export const Header = () => {
   const isAuthorized = useIsAuthorized();
 
   return (
-    <Box bgColor="blackAlpha.400" as="header">
+    <Box bgColor="blackAlpha.400" as="header" w='100%'>
       <Flex py="1rem" w="80%" mx="auto">
         <Heading as={NavLink} to={routes.base}>
           Ticket

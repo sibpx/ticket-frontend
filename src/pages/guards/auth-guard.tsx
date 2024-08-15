@@ -8,8 +8,10 @@ interface AuthGuardProps {
 
 export const AuthGuard = ({ children }: AuthGuardProps) => {
   const isAuthorized = useIsAuthorized();
-  if (!isAuthorized) {
-    return <>{children}</>;
+
+  if (isAuthorized) {
+    return <Navigate to={routes.base} />;
   }
-  return <Navigate to={routes.base} />;
+
+  return <>{children}</>;
 };

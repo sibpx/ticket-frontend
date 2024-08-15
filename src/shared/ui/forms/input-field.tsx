@@ -3,8 +3,6 @@ import { ForwardedRef, forwardRef, ReactNode } from "react";
 
 interface InputFieldProps extends InputProps {
   children: ReactNode;
-  type: string;
-  id: string;
 }
 
 export const InputField = forwardRef(
