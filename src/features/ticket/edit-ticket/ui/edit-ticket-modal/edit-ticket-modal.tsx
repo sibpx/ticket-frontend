@@ -9,12 +9,15 @@ import {
   ModalProps,
 } from "@chakra-ui/react";
 import { EditTicketForm } from "../edit-ticket-form";
-import { useParams } from "react-router-dom";
 
-interface EditTicketModalProps extends Omit<ModalProps, "children"> {}
+interface EditTicketModalProps extends Omit<ModalProps, "children"> {
+  ticketId: string;
+}
 
-export const EditTicketModal = (props: EditTicketModalProps) => {
-  const id = useParams();
+export const EditTicketModal = ({
+  ticketId,
+  ...props
+}: EditTicketModalProps) => {
   return (
     <Portal>
       <Modal
@@ -26,10 +29,10 @@ export const EditTicketModal = (props: EditTicketModalProps) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Тикет {`${id}`}</ModalHeader>
+          <ModalHeader>Тикет {`${ticketId}`}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <EditTicketForm onClose={props.onClose} id={id} />
+            <EditTicketForm onClose={props.onClose} id={ticketId} />
           </ModalBody>
         </ModalContent>
       </Modal>

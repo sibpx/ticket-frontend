@@ -5,7 +5,6 @@ import { Layout, Login, Register, Account, Main, NotFound } from "./ui";
 import { AuthGuard, GuestGuard } from "./guards";
 
 import { CheckToken } from "./check-token";
-import { EditTicketModal } from "features";
 
 export const router = createBrowserRouter([
   {
@@ -40,16 +39,6 @@ export const router = createBrowserRouter([
             <Main />
           </GuestGuard>
         ),
-        children: [
-          {
-            path: routes.ticket,
-            element: (
-              <GuestGuard>
-                <EditTicketModal />
-              </GuestGuard>
-            ),
-          },
-        ],
       },
       {
         path: routes.account,

@@ -19,7 +19,12 @@ export const EditTicket = ({ id }: EditTicketProps) => {
         icon={<EditIcon />}
         onClick={onOpen}
       />
-      <EditTicketModal isOpen={isOpen} onClose={onClose} id={id} />
+      <EditTicketModal
+        isOpen={isOpen}
+        onClose={onClose}
+        id={id}
+        ticketId={id}
+      />
     </>
   );
 };
